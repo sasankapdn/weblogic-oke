@@ -18,20 +18,20 @@
             "filename": "setup.oke.ocishell.md"
         },
         {         
-            "title": "Lab 2: Install and configure the operator",
-            "description": "Install and configure the operator",
-            "partnumber": "Ennnnn_01",
-            "publisheddate": "10/31/2019",
-            "contentid": "12nnnn",
-            "filename": "install.operator.ocishell.md"
-        },
-        {         
-            "title": "Lab 3: Install and configure Traefik",
+            "title": "Lab 2: Install and configure Traefik",
             "description": "Install and configure Traefik",
             "partnumber": "Ennnnn_01",
             "publisheddate": "10/31/2019",
             "contentid": "12nnnn",
             "filename": "install.traefik.ocishell.md"
+        },
+        {         
+            "title": "Lab 3: Install and configure the operator",
+            "description": "IInstall and configure the operator",
+            "partnumber": "Ennnnn_01",
+            "publisheddate": "10/31/2019",
+            "contentid": "12nnnn",
+            "filename": "install.operator.ocishell.md"
         },
         {         
             "title": "Lab 4: Deploy a WebLogic domain",
