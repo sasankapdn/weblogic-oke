@@ -43,7 +43,7 @@ Follow the instructions to create your account.  Be sure to enter an email you c
 
 - Enter your **Username** and **Password** in the input fields and click **Sign In**.
 
-    ![](images/0/cloud-login.png " ") 
+    ![](images/0/cloud-login.png " ")
 
   **NOTE**: You will likely be prompted to change the temporary password listed in the welcome email. In that case, enter the new password in the password field.
 

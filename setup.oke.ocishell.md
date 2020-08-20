@@ -33,7 +33,7 @@ Select the menu icon in the top left corner and then select **Compute**.
 That opens the OCI console.
 
 #### Create a policy ####
-
+p
 A service policy allows OKE to create resources in your tenancy, such as compute. An OKE resource policy or policies let you specify which groups in your tenancy can perform certain tasks with the OKE API.
 
 Optionally, create more resource policies if you want to control which groups can access different parts of the OKE service.
@@ -62,7 +62,7 @@ Click **Create**.
 
 The *Quick Create* feature uses the default settings to create a *quick cluster* with new network resources as required. This approach is the fastest way to create a new cluster. If you accept all the default values, you can create a new cluster in just a few clicks. New network resources for the cluster are created automatically, along with a node pool and three worker nodes.
 
-In the Console, open the navigation menu. Under *Solutions, Platform and Edge*, go to *Developer Services* and select **Container Clusters (OKE)**.
+In the Console, open the navigation menu. Under *Solutions, Platform and Edge*, go to *Developer Services* and select **Kubernetes Clusters**.
 
 ![alt text](images/oke/007.clusters.png)
 
