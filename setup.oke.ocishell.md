@@ -1,50 +1,63 @@
 # Create Oracle Container Engine for Kubernetes (OKE) on Oracle Cloud Infrastructure (OCI) #
 
+## Before You Begin
+### Objectives
+- Open the OCI console.
+- Create Compartment
+- Create a policy.
+- Create an OKE cluster.
+- OCI Cloud Shell
+- Configure kubectl
+- Set up the RBAC policy for the OKE cluster
+
+### Introduction
+
 Oracle Cloud Infrastructure Container Engine for Kubernetes is a fully-managed, scalable, and highly available service that you can use to deploy your container applications to the cloud. Use the Container Engine for Kubernetes (sometimes abbreviated OKE) when your development team wants to reliably build, deploy, and manage cloud-native applications. You specify the compute resources that your applications require, and OKE provisions them on an Oracle Cloud Infrastructure in an existing OCI tenancy.
 
-### Prerequisites ###
+This lab shows you the way the **Quick Start** feature creates and configures all the necessary resources for a three node Kubernetes cluster. All the nodes will be deployed in different availability domains to ensure high availability.
 
-You must have an [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cloud-infrastructure) enabled account.
+During this lab, you will Create Oracle Container Engine for Kubernetes (OKE) on Oracle Cloud Infrastructure (OCI).
 
-To create the Container Engine for Kubernetes (OKE), complete the following steps:
+## Required Artifacts
 
-- Create the network resources (VCN, subnets, security lists, etc.)
-- Create a cluster
-- Create a `NodePool`
+- You should already have completed Introduction before beginning this lab.
+- You must have an [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cloud-infrastructure) enabled account.
 
-This tutorial shows you the way the *Quick Start* feature creates and configures all the necessary resources for a three node Kubernetes cluster. All the nodes will be deployed in different availability domains to ensure high availability.
+- **Works better with the Chrome browser**.
 
-For more information about OKE and custom cluster deployment, see the [Oracle Container Engine](https://docs.cloud.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm) documentation.
+## **STEP 1**: Open the OCI console   
 
-#### Open the OCI console ####
+- If you already opened the OCI console you can proceed step 2. Otherwise, open the OCI console.
 
-Sign in using the Cloud Services link you got in an email during the registration process. If this is your first time signing in, you have to change the generated first-time password.
+## **STEP 2**: Create a Compartment for your Kubernetes nodes
 
-![alt text](images/oke/001.cloud.link.email.png)
+Compartments are used to isolate resources within your OCI tenant. Role-based access policies can be applied to manage access to compute instances and other resources within a Compartment.
 
-Use the user name and password distributed by the instructor. Click **Sign In**.
+- Click the **hamburger icon** in the upper left corner to open the navigation menu. Under the **Identity** section of the menu, click **Compartments**
 
-![alt text](images/oke/002.login.png)
+    ![](images/1/001.png " ")
 
-Select the menu icon in the top left corner and then select **Compute**.
+  - If you have a **Demo** compartment already, _**SKIP THIS STEP**_. Otherwise, Click **Create Compartment**
 
-![alt text](images/oke/003.compute.console.png)
+    ![](images/2/002.png " ")
 
-That opens the OCI console.
+  - In the **Name** field, enter `Demo`. Enter a description of your choice. In the **Parent Compartment** field, ensure that the `root` compartment is selected (it will have the same name as your Oracle Cloud Account). Click **Create Compartment**.
 
-#### Create a policy ####
-p
+    ![](images/2/003.png " ")
+
+
+## **STEP 3**: Create a policy 
 A service policy allows OKE to create resources in your tenancy, such as compute. An OKE resource policy or policies let you specify which groups in your tenancy can perform certain tasks with the OKE API.
 
 Optionally, create more resource policies if you want to control which groups can access different parts of the OKE service.
 
 Open the navigation menu. Under **Identity**, select **Policies**.
 
-![alt text](images/oke/004.oci.console.png)
+![alt text](images/oke/004.oci.console.png " ")
 
 In the left side menu, select a "root" compartment for your account (see screenshot below). A list of the policies in the compartment you're viewing is displayed. If you want to attach the policy to a compartment other than the one you're viewing, select the desired compartment from the drop down list on the left. Click **Create Policy**.
 
-![alt text](images/oke/005.policies.png)
+![alt text](images/oke/005.policies.png " ")
 
 Enter the following:
 
@@ -58,7 +71,7 @@ Click **Create**.
 
 ![alt text](images/oke/006.create.oke.policy.png)
 
-#### Create an OKE cluster ####
+## **STEP 3**: Create an OKE cluster 
 
 The *Quick Create* feature uses the default settings to create a *quick cluster* with new network resources as required. This approach is the fastest way to create a new cluster. If you accept all the default values, you can create a new cluster in just a few clicks. New network resources for the cluster are created automatically, along with a node pool and three worker nodes.
 
@@ -81,17 +94,15 @@ The Create Virtual Cloud Network panel shows the network resources that will be 
 Specify the following configuration details on the Cluster Creation page:
 - **Name**: The name of the cluster. Leave the default value.
 - **Compartment**: The name of the compartment. Leave the default value.
-- **Kubernetes version**: The version of Kubernetes. Leave the default value. (Don't select version 16 even if it is default version; please select version 15 in such cases.)
-- **Choose Visibility Type**: Is the cluster going to be routable or not. Leave the default value.
+- **Kubernetes version**: The version of Kubernetes. **Select 15.7 or lower** (Don't select version 16 even if it is default version; please select version 15 in such cases.)
+- **Choose Visibility Type**: Is the cluster going to be routable or not. Select Public.
 - **Shape**: The shape to use for each node in the node pool. The shape determines the number of CPUs and the amount of memory allocated to each node. The list shows only those shapes available in your tenancy that are supported by OKE. Select the available *VM.Standard2.1*.
 - **Number of nodes**: The number of worker nodes to create. Leave the default value, *3*
-- **Kubernetes Dashboard Enabled**: Leave the default false (`DISABLED`).
-- **Tiller (Helm) Enabled**: Leave the default false (`DISABLED`).
+
 
 Click **Next** to review the details you entered for the new cluster.
 
-![alt text](images/oke/009.quick.details.ocishell.1.png)
-![alt text](images/oke/009.quick.details.ocishell.2.png)
+![alt text](images/1/oke.png " ")
 
 On the *Review* page, click **Submit** to create the new network resources and the new cluster.
 
@@ -104,7 +115,7 @@ You see the network resources being created for you.
 
 Click **Close** and the new cluster is shown on the *Cluster Details* page. When it has been created, the new cluster has a status of *Active*.
 
-#### OCI Cloud Shell ####
+## **STEP 4**:  OCI Cloud Shell 
 
 Oracle Cloud Infrastructure (OCI) Cloud Shell is a web browser-based terminal, accessible from the Oracle Cloud Console. Cloud Shell provides access to a Linux shell, with a pre-authenticated Oracle Cloud Infrastructure CLI and other useful tools (*Git, kubectl, helm, OCI CLI*) to complete the operator tutorials. Cloud Shell is accessible from the Console. Your Cloud Shell will appear in the Oracle Cloud Console as a persistent frame of the Console, and will stay active as you navigate to different pages of the Console.
 
@@ -118,7 +129,7 @@ Wait a few seconds for the Cloud Shell to appear.
 
 You can minimize and restore the terminal size at any time.
 
-##### Configure kubectl #####
+## **STEP 5**: Configure kubectl
 
 Your Cloud Shell comes with the OCI CLI pre-authenticated, so there’s no setup to do before you can start using it.
 
@@ -148,7 +159,7 @@ If you see the node's information, then the configuration was successful.
 
 ![alt text](images/oke/024.ocishell.config.complete.png)
 
-##### Set up the RBAC policy for the OKE cluster #####
+## **STEP 6**:  Set up the RBAC policy for the OKE cluster 
 
 In order to have permission to access the Kubernetes cluster, you need to authorize your OCI account as a cluster-admin on the OCI Container Engine for Kubernetes cluster. This will require your user OCID.
 
@@ -166,3 +177,11 @@ $ kubectl create clusterrolebinding my-cluster-admin-binding --clusterrole=clust
 clusterrolebinding.rbac.authorization.k8s.io/my-cluster-admin-binding created
 ```
 Congratulation, now your OCI OKE environment is ready to deploy your WebLogic domain.
+## Acknowledgements
+
+- **Authors/Contributors** - 
+- **Last Updated By/Date** - 
+- **Workshop Expiration Date** - April 31, 2021
+
+## See an issue?
+Please submit feedback using this [form](https://apexapps.oracle.com/pls/apex/f?p=133:1:::::P1_FEEDBACK:1). Please include the *workshop name*, *lab* and *step* in your request.  If you don't see the workshop name listed, please enter it manually. If you would like for us to follow up with you, enter your email in the *Feedback Comments* section.    Please include the workshop name and lab in your request.

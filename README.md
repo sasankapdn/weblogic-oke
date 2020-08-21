@@ -5,7 +5,6 @@ This workshop lets you practice through the process of moving an existing On-pre
 
 [![Watch Workshop Overview](./images/0/youtube.png)](https://videohub.oracle.com/media/WLS+to+OKE+Overview+Video/1_z6ofm0s8)
 
-**_To log issues_**, click here to go to the [github oracle](https://github.com/oracle/learning-library/issues/new) repository issue submission form.
 
 ### Acquire an Oracle Cloud Free Tier Account or Workshop Account
 
@@ -46,10 +45,13 @@ Follow the instructions to create your account.  Be sure to enter an email you c
     ![](images/0/cloud-login.png " ")
 
   **NOTE**: You will likely be prompted to change the temporary password listed in the welcome email. In that case, enter the new password in the password field.
+- That opens the OCI console.
+    ![](images/oci_console.png " ")
 
-## Navigate to Lab 100
 
-  - Use the Contents Menu to access the next lab. For example, to proceed to Lab 100, click Lab **Lab 100: Pull the Docker image for the WebLogic and push to Oracle Cloud Infrastructure Registry (OCIR)** from the menu on the right.
+## Navigate to Lab 1
+
+  - Use the Contents Menu to access the next lab. For example, to proceed to Lab 1, click Lab **Lab 100: Pull the Docker image for the WebLogic and push to Oracle Cloud Infrastructure Registry (OCIR)** from the menu on the right.
 
   ![](images/0/WorkshopMenu.png " ")
 
@@ -57,4 +59,15 @@ Follow the instructions to create your account.  Be sure to enter an email you c
 
   ![](images/0/Menu.png " ")
 
-You're now ready to continue with **Lab 100**.
+You're now ready to continue with **Lab 1**.
+
+Please proceed to the next lab.
+
+## Acknowledgements
+
+- **Authors/Contributors** - 
+- **Last Updated By/Date** - 
+- **Workshop Expiration Date** - April 31, 2021
+
+## See an issue?
+Please submit feedback using this [form](https://apexapps.oracle.com/pls/apex/f?p=133:1:::::P1_FEEDBACK:1). Please include the *workshop name*, *lab* and *step* in your request.  If you don't see the workshop name listed, please enter it manually. If you would like for us to follow up with you, enter your email in the *Feedback Comments* section.    Please include the workshop name and lab in your request.
