@@ -35,12 +35,12 @@ Create a Kubernetes secret containing the Administration Server boot credentials
 
 After you have your domain namespace (the WebLogic domain is not deployed yet), you have to update the load balancer and operator configuration to specify where the domain will be deployed.
 
-Before executing the domain `helm` install, be sure that you are in the WebLogic operator local Git repository folder.
+Before executing the domain **helm** install, be sure that you are in the WebLogic operator local Git repository folder.
 
 ```
 <copy>cd ~/weblogic-kubernetes-operator/</copy>
 ```
-To update the operator, execute the following `helm upgrade` command:
+To update the operator, execute the following **helm upgrade** command:
 ```
 <copy>helm upgrade sample-weblogic-operator \
   kubernetes/charts/weblogic-operator \
@@ -50,7 +50,7 @@ To update the operator, execute the following `helm upgrade` command:
   --wait</copy>
 ```
 
-To update Traefik, execute the following `helm upgrade` command:
+To update Traefik, execute the following **helm upgrade** command:
 ```bash
 <copy>helm upgrade traefik-operator \
   stable/traefik \
@@ -65,7 +65,7 @@ Note that in both cases, the only updated parameter is the domain namespace.
 
 To deploy WebLogic domain, you need to create a domain resource definition which contains the necessary parameters for the operator to start the WebLogic domain properly.
 
-We provided for you a `domain.yaml` file that contains a YAML representation of the custom resource object. Please copy it locally:
+We provided for you a **domain.yaml** file that contains a YAML representation of the custom resource object. Please copy it locally:
 ```bash
 <copy>curl -LSs https://raw.githubusercontent.com/nagypeter/weblogic-operator-tutorial/master/k8s/domain_short.yaml >~/domain.yaml</copy>
 ```
@@ -95,9 +95,9 @@ sample-domain1-managed-server2   0/1       Running   0          1m        10.244
 ```
 You should see three running pods similar to the results shown above. If you don't see all the running pods, wait and then check periodically. The entire domain deployment may take up to 2-3 minutes depending on the compute shapes.
 
-In order to access any application or the Administration Console deployed on WebLogic, you have to configure a *Traefik* Ingress. An OCI load balancer is already assigned during the *Traefik* install in the previous step.
+In order to access any application or the Administration Console deployed on WebLogic, you have to configure a **Traefik** Ingress. An OCI load balancer is already assigned during the **Traefik** install in the previous step.
 
-As a simple solution, it's best to configure path routing, which will route external traffic through *Traefik* to the domain cluster address or the Administration Server Console.
+As a simple solution, it's best to configure path routing, which will route external traffic through **Traefik** to the domain cluster address or the Administration Server Console.
 
 Execute the following Ingress resource definition:
 ```bash
@@ -126,7 +126,7 @@ EOF</copy>
 ```
 
 
-Please note the two backends and the namespace, `serviceName`, `servicePort` definitions. The first backend is the domain cluster service to reach the application at the root context path. The second is for the admin console which is a different service.
+Please note the two backends and the namespace, **serviceName**, **servicePort** definitions. The first backend is the domain cluster service to reach the application at the root context path. The second is for the admin console which is a different service.
 
 Once the Ingress has been created construct the URL of the Administration Console based on the following pattern:
 
