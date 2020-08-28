@@ -167,7 +167,7 @@ In the Console, select your OCI user name and select User Settings. On the user 
 
 ![alt text](images/oke/010.user.ocid.png)
 
-Then execute the role binding command using your(!) user OCID:
+Then execute the role binding command using your user OCID:
 ```bash
 kubectl create clusterrolebinding my-cluster-admin-binding --clusterrole=cluster-admin --user=<YOUR_USER_OCID>
 ```

@@ -14,7 +14,7 @@ If you already have an account or an active trial/free tier account, you may ski
 
 ## Sign Up for a Free Tier Account
 
-- Open up a browser and click [here](https://myservices.us.oraclecloud.com/mycloud/signup?language=en&sourceType=:em:eo:ie:2t:RC_NAMK180921P00075:WLSonPrem_HOL) to sign up for an Oracle Cloud Account.
+- Open up a browser and click [here](https://myservices.us.oraclecloud.com/mycloud/signup?language=en&sourceType=:ow:lp:pt:::RC_WWMK200728P00006:WeblogicOCI_HOL&intcmp=:ow:lp:pt:::RC_WWMK200728P00006:WeblogicOCI_HOL) to sign up for an Oracle Cloud Account.
 Follow the instructions to create your account.  Be sure to enter an email you can access.  
 
   ![](images/0/free-tier-account-3.png " ")
